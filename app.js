@@ -3,9 +3,17 @@
 function convertNumber(field) {
     let input = document.getElementById(field);
     let inputText = input.value;
-    let inputValue = parseFloat(inputText);
-    input.value = '';
-    return inputValue;
+    if(isNaN(inputText) == false) {
+        let inputValue = parseFloat(inputText);
+        input.value = '';
+        return inputValue;
+    } else {
+        document.getElementById('field_error').style.display = 'inline-block';
+        input.value = '';
+    }
+    input.addEventListener('keyup', function() {
+        document.getElementById('field_error').style.display = 'none';
+    })
 }
 
 function calculateExpence() {
