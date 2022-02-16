@@ -160,7 +160,7 @@ img {
 .saving_field .labeled_field input {
     width: 150px;
     height: 40px;
-    padding: 0;
+    padding: 0 20px;
 }
 
 .saving_icon span {

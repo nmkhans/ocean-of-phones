@@ -27,3 +27,19 @@ balanceBtn.addEventListener('click', function(event) {
     let showBalance = document.getElementById('balance_display');
     showBalance.innerText = balance;
 });
+
+// calculate saving money and remaining
+
+let savingBtn = document.getElementById('save_btn');
+savingBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    let balance = document.getElementById('balance_display');
+    let saveValue = convertNumber('save_field');
+    let showSaving = document.getElementById('saving_diaplay');
+    let showRemaining = document.getElementById('display_remaining');
+    let balanceValue = parseFloat(balance.innerText);
+    let savingAmount = balanceValue / saveValue;
+    showSaving.innerText = savingAmount;
+    let remaining = balanceValue - savingAmount;
+    showRemaining.innerText = remaining;
+});
