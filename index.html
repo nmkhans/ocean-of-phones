@@ -16,11 +16,90 @@
     </head>
     
     <body>
-        <header class="headera_area">
+        <!--..___________ Header Area ___________..-->
+        
+        <header class="header_area">
             <div class="inner_header_area container">
-                <div class="header_title">Pocket Money</div>
+                <div class="header_title">
+                    <h1>Pocket <span>Money</span> <span class="header_icon"><i class="fa-solid fa-coins"></i></span></h1>
+                </div>
             </div>
         </header>
+
+        <!--..___________ App Area ___________..-->
+
+        <main class="app_area">
+            <div class="inner_app_area container">
+                <section class="app_content">
+                    <div class="app_feature_img">
+                        <img src="image/saving.jpg" alt="">
+                    </div>
+                    <div class="app_calculation">
+                        <form action="#">
+                            <div class="balance_calculation">
+                                <div class="income_field">
+                                    <h3>Income</h3>
+                                    <div class="labeled_field">
+                                        <label for="income_input">Income:</label>
+                                        <input id="income_input" type="text" >
+                                    </div>
+                                </div>
+                                <div class="expenses_field">
+                                    <h3>Expence</h3>
+                                    <div class="labeled_field">
+                                        <label for="food_field">Food:</label>
+                                        <input id="food_field" type="text">
+                                    </div>
+                                    <div class="labeled_field">
+                                        <label for="rent_field">Rent:</label>
+                                        <input id="rent_field" type="text">
+                                    </div>
+                                    <div class="labeled_field">
+                                        <label for="cloth_field">Clothes:</label>
+                                        <input id="cloth_field" type="text">
+                                    </div>
+                                </div>
+                                <div class="balance_calculate_btn">
+                                    <button id="balance_btn">Calculate</button>
+                                </div>
+                                <div class="balance_display">
+                                    <div class="total_balance">
+                                        <h3>Total Expenses: <span>5500</span></h2>
+                                    </div>
+                                    <div class="total_expence">
+                                        <h3>Balance: <span>4500</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="saving_calculation">
+                                <div class="saving_field">
+                                    <div class="labeled_field">
+                                        <label for="save_field">Save: </label>
+                                        <input id="save_field" type="text">
+                                    </div>
+                                    <div class="saving_icon">
+                                        <span>%</span>
+                                    </div>
+                                    <div class="saving_button">
+                                        <button id="save_btn">Save</button>
+                                    </div>
+                                </div>
+                                <div class="saving_display">
+                                    <div class="total_saving">
+                                        <h3>Saving Amount: <span>2000</span></h3>
+                                    </div>
+                                    <div class="remaining">
+                                    <div class="total_remaing">
+                                        <h3>Remaining: <span>2500</span></h3>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
         
         
     <!--..______ Script File Added ______..-->

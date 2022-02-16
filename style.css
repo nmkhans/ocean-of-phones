@@ -17,3 +17,183 @@
 img {
     max-width: 100%;
 }
+
+/* ====================================
+    Header Area CSS
+==============================*/
+
+.header_area {
+    margin-top: 50px;
+}
+
+.header_title {
+    text-align: center;
+}
+
+.header_title h1 {
+    color: #222;
+}
+
+.header_title h1 span {
+    color: #5f51fb;
+    font-size: 24px;
+}
+
+.header_icon i {
+    color: goldenrod;
+}
+
+/* ====================================
+    App Area CSS
+==============================*/
+
+.app_area {
+    margin-top: 50px;
+    padding: 50px 0;
+}
+
+.app_content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 40px;
+}
+
+.app_calculation {
+    background-color: #F8F8F8;
+    padding: 50px;
+    text-align: center;
+}
+
+.income_field {
+    margin-bottom: 20px;
+}
+
+.income_field h3 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.expenses_field {
+    margin-bottom: 20px;
+}
+
+.expenses_field h3 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.balance_display {
+    margin-top: 20px;
+}
+
+.saving_calculation {
+    margin-top: 30px;
+}
+
+.saving_display {
+    margin-top: 30px;
+}
+
+.labeled_field {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.labeled_field label {
+    display: inline-block;
+    width: 60px;
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+.labeled_field input {
+    height: 35px;
+    width: 250px;
+    padding: 20px 20px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background: #DCDCDC;
+}
+
+.expenses_field .labeled_field input {
+    margin-top: 15px;
+}
+
+.balance_calculate_btn button {
+    display: inline-block;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 130px;
+    background: #5f51fb;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 18px 0px #0000001A;
+    transition: .4s;
+}
+
+.balance_calculate_btn button:hover {
+    transform: scale(.9);
+}
+
+.total_balance {
+    margin: 15px 0 20px 0;
+}
+
+.saving_field {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.saving_field .labeled_field {
+    width: 300px;
+}
+
+.saving_field .labeled_field input {
+    width: 150px;
+    height: 40px;
+    padding: 0;
+}
+
+.saving_icon span {
+    font-size: 19px;
+}
+
+.saving_button {
+    width: 300px;
+    text-align: left;
+}
+
+.saving_button button {
+    display: inline-block;
+    margin-left: 30px;
+    height: 40px;
+    width: 150px;
+    border: none;
+    outline: none;
+    background: #5f51fb;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 18px 0px #0000001A;
+    transition: .4s;
+}
+
+.saving_button button:hover {
+    transform: scale(.9);
+}
+
+.total_saving {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
