@@ -31,9 +31,18 @@ balanceBtn.addEventListener('click', function(event) {
     event.preventDefault();
     let incomeMoney = convertNumber('income_input');
     let totalExpence = calculateExpence();
-    let balance = incomeMoney - totalExpence;
-    let showBalance = document.getElementById('balance_display');
-    showBalance.innerText = balance;
+    if(incomeMoney > 0 && incomeMoney >= 100) {
+        if(incomeMoney > totalExpence) {
+            let balance = incomeMoney - totalExpence;
+            let showBalance = document.getElementById('balance_display');
+            showBalance.innerText = balance;
+        } else {
+            document.getElementById('expense_error').style.display = 'inline-block';
+
+        }
+    } else {
+        document.getElementById('number_error').style.display = 'inline-block';
+    }
 });
 
 // calculate saving money and remaining
