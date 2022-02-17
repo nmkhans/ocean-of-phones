@@ -1,5 +1,7 @@
-// Calculate total balance after expense
+/* Calculate total balance after expense */
 
+
+// Convertion input value into number
 function convertNumber(field) {
     let input = document.getElementById(field);
     let inputText = input.value;
@@ -16,6 +18,7 @@ function convertNumber(field) {
     })
 }
 
+// Calculate expenses
 function calculateExpence() {
     let foodInput = convertNumber('food_input');
     let rentInput = convertNumber('rent_input');
@@ -26,6 +29,7 @@ function calculateExpence() {
     return totalExpence;
 }
 
+// Total balance money calculation
 let balanceBtn = document.getElementById('balance_btn');
 balanceBtn.addEventListener('click', function(event) {
     event.preventDefault();
