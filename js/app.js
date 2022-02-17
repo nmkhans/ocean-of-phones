@@ -88,11 +88,11 @@ savingBtn.addEventListener("click", function (event) {
     event.preventDefault();
     let totalIncomes = totalIncome();
     let balanceValue = convertDisplay('balance_display');
-    let saveValue = convertNumber("save_field");
+    let saveValue = convertNumber("save_field") / 100;
     let showSaving = document.getElementById("saving_diaplay");
     let showRemaining = document.getElementById("display_remaining");
     if (isNaN(saveValue) == false) {
-        let savingAmount = totalIncomes / saveValue;
+        let savingAmount = totalIncomes * saveValue;
         showSaving.innerText = savingAmount;
         let remaining = balanceValue - savingAmount;
         showRemaining.innerText = remaining;
