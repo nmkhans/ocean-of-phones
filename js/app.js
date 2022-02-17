@@ -65,18 +65,34 @@ balanceBtn.addEventListener("click", function (event) {
     }
 });
 
-// calculate saving money and remaining
+// convert Display 
+function convertDisplay(display) {
+    let text = document.getElementById(display);
+    let displayText = text.innerText;
+    let displayValue = parseFloat(displayText);
+    return displayValue;
+}
 
+// total incom
+function totalIncome() {
+    let expence = convertDisplay('expenses_display');
+    let balance = convertDisplay('balance_display');
+    let total = expence + balance;
+    return total
+}
+
+
+// calculate saving money and remaining
 let savingBtn = document.getElementById("save_btn");
 savingBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    let balance = document.getElementById("balance_display");
+    let totalIncomes = totalIncome();
+    let balanceValue = convertDisplay('balance_display');
     let saveValue = convertNumber("save_field");
     let showSaving = document.getElementById("saving_diaplay");
     let showRemaining = document.getElementById("display_remaining");
-    let balanceValue = parseFloat(balance.innerText);
     if (isNaN(saveValue) == false) {
-        let savingAmount = balanceValue / saveValue;
+        let savingAmount = totalIncomes / saveValue;
         showSaving.innerText = savingAmount;
         let remaining = balanceValue - savingAmount;
         showRemaining.innerText = remaining;
