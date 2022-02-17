@@ -5,15 +5,25 @@ function convertNumber(field) {
     let input = document.getElementById(field);
     let inputText = input.value;
     let inputValue = parseFloat(inputText);
-    input.value = "";
-    return inputValue;
-
+    
     // remove error
-    /* input.addEventListener("keyup", function () {
+    input.addEventListener("keyup", function () {
         document.getElementById("field_error").style.display = "none";
         document.getElementById("negetive_error").style.display = "none";
         document.getElementById("expense_error").style.display = "none";
-    }); */
+    });
+
+    if(isNaN(inputValue) == false) {
+        if(inputValue > 0) {
+            return inputValue;
+        } else {
+            document.getElementById("negetive_error").style.display = "inline-block";
+            return;
+        }
+    } else {
+        document.getElementById("field_error").style.display = "inline-block";
+        return;
+    }
 }
 
 // Calculate expenses
@@ -22,9 +32,11 @@ function calculateExpence() {
     let rentInput = convertNumber("rent_input");
     let clothInput = convertNumber("cloth_input");
     let totalExpence = foodInput + rentInput + clothInput;
-    let showTotalExpence = document.getElementById("expenses_display");
-    showTotalExpence.innerText = totalExpence;
-    return totalExpence;
+    if(isNaN(totalExpence) == false) {
+        if(foodInput != 'undefined' && rentInput != 'undefined' && clothInput != 'undefined') {
+            return totalExpence;
+        }
+    }
 }
 
 // Total balance money calculation
@@ -33,9 +45,19 @@ balanceBtn.addEventListener("click", function (event) {
     event.preventDefault();
     let incomeMoney = convertNumber("income_input");
     let totalExpence = calculateExpence();
-    let balance = incomeMoney - totalExpence;
-    let showBalance = document.getElementById("balance_display");
-    showBalance.innerText = balance;
+    if(incomeMoney != 'undefined') {
+        if(incomeMoney > 0 && totalExpence > 0) {
+            if(incomeMoney > totalExpence) {
+                let balance = incomeMoney - totalExpence;
+                let showTotalExpence = document.getElementById("expenses_display");
+                showTotalExpence.innerText = totalExpence;
+                let showBalance = document.getElementById("balance_display");
+                showBalance.innerText = balance;
+            } else {
+                document.getElementById("expense_error").style.display = "inline-block";
+            }
+        }
+    }
 });
 
 // convert Display
