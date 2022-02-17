@@ -36,7 +36,6 @@ img {
 
 .header_title h1 span {
     color: #5f51fb;
-    font-size: 24px;
 }
 
 .header_icon i {
@@ -50,6 +49,17 @@ img {
 .app_area {
     margin-top: 50px;
     padding: 50px 0;
+}
+
+.app_feature_img {
+    background: url(../image/saving.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.app_feature_img div h1 {
+    opacity: 0;
 }
 
 .app_content {
