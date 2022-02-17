@@ -5,7 +5,7 @@ function convertNumber(field) {
     let input = document.getElementById(field);
     let inputText = input.value;
     let inputValue = parseFloat(inputText);
-    
+
     // remove error
     input.addEventListener("keyup", function () {
         document.getElementById("field_error").style.display = "none";
@@ -13,11 +13,12 @@ function convertNumber(field) {
         document.getElementById("expense_error").style.display = "none";
     });
 
-    if(isNaN(inputValue) == false) {
-        if(inputValue > 0) {
+    if (isNaN(inputValue) == false) {
+        if (inputValue > 0) {
             return inputValue;
         } else {
-            document.getElementById("negetive_error").style.display = "inline-block";
+            document.getElementById("negetive_error").style.display =
+                "inline-block";
             return;
         }
     } else {
@@ -32,8 +33,12 @@ function calculateExpence() {
     let rentInput = convertNumber("rent_input");
     let clothInput = convertNumber("cloth_input");
     let totalExpence = foodInput + rentInput + clothInput;
-    if(isNaN(totalExpence) == false) {
-        if(foodInput != 'undefined' && rentInput != 'undefined' && clothInput != 'undefined') {
+    if (isNaN(totalExpence) == false) {
+        if (
+            foodInput != "undefined" &&
+            rentInput != "undefined" &&
+            clothInput != "undefined"
+        ) {
             return totalExpence;
         }
     }
@@ -45,16 +50,18 @@ balanceBtn.addEventListener("click", function (event) {
     event.preventDefault();
     let incomeMoney = convertNumber("income_input");
     let totalExpence = calculateExpence();
-    if(incomeMoney != 'undefined') {
-        if(incomeMoney > 0 && totalExpence > 0) {
-            if(incomeMoney > totalExpence) {
+    if (incomeMoney != "undefined") {
+        if (incomeMoney > 0 && totalExpence > 0) {
+            if (incomeMoney > totalExpence) {
                 let balance = incomeMoney - totalExpence;
-                let showTotalExpence = document.getElementById("expenses_display");
+                let showTotalExpence =
+                    document.getElementById("expenses_display");
                 showTotalExpence.innerText = totalExpence;
                 let showBalance = document.getElementById("balance_display");
                 showBalance.innerText = balance;
             } else {
-                document.getElementById("expense_error").style.display = "inline-block";
+                document.getElementById("expense_error").style.display =
+                    "inline-block";
             }
         }
     }
@@ -82,12 +89,28 @@ savingBtn.addEventListener("click", function (event) {
     event.preventDefault();
     let totalIncomes = totalIncome();
     let balanceValue = convertDisplay("balance_display");
-    let saveInput = document.getElementById("save_field").value;
-    let saveValue = parseFloat(saveInput) / 100;
-    let showSaving = document.getElementById("saving_diaplay");
-    let showRemaining = document.getElementById("display_remaining");
-    let savingAmount = totalIncomes * saveValue;
-    showSaving.innerText = savingAmount;
-    let remaining = balanceValue - savingAmount;
-    showRemaining.innerText = remaining;
+    let saveInput = document.getElementById("save_field");
+    let saveValueText = saveInput.value;
+    let saveValue = parseFloat(saveValueText);
+    if(isNaN(saveValue) == false && saveValue > 0) {
+        let savedMoney = saveValue / 100;
+        let showSaving = document.getElementById("saving_diaplay");
+        let showRemaining = document.getElementById("display_remaining");
+        debugger;
+        let savingAmount = totalIncomes * savedMoney;
+        if(balanceValue > savingAmount) {
+            showSaving.innerText = savingAmount;
+            let remaining = balanceValue - savingAmount;
+            showRemaining.innerText = remaining;
+        } else {
+            document.getElementById('greater_error').style.display = 'inline-block';
+        }
+    } else {
+        document.getElementById('save_field_error').style.display = 'inline-block';
+    }
+    
+    saveInput.addEventListener('keyup', function() {
+        document.getElementById('save_field_error').style.display = 'none';
+        document.getElementById('greater_error').style.display = 'none';
+    })
 });
