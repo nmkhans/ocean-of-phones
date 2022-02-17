@@ -4,25 +4,30 @@
 function convertNumber(field) {
     let input = document.getElementById(field);
     let inputText = input.value;
-    if (isNaN(inputText) == false) {
-        let inputValue = parseFloat(inputText);
+    let inputValue = parseFloat(inputText);
+    if (isNaN(inputValue) == false) {
         if (inputValue > 0) {
-            input.value = "";
-            return inputValue;
+            if(inputValue >= 99) {
+                input.value = "";
+                return inputValue;
+            } else {
+                document.getElementById("infaficient_money_error").style.display = "inline-block";
+                input.value = "";
+            }
         } else {
-            document.getElementById("negetive_error").style.display =
-                "inline-block";
+            document.getElementById("negetive_error").style.display = "inline-block";
             input.value = "";
         }
     } else {
-        document.getElementById("field_error").style.display = "inline-block";
+        document.getElementById("field_error").style.display = "inline-block"; 
         input.value = "";
     }
-    input.addEventListener("keyup", function () {
+
+    // remove error
+    input.addEventListener('keyup', function() {
         document.getElementById("field_error").style.display = "none";
-    });
-    input.addEventListener("keyup", function () {
         document.getElementById("negetive_error").style.display = "none";
+        document.getElementById("infaficient_money_error").style.display = "none";
     });
 }
 
@@ -56,7 +61,7 @@ function convertDisplay(display) {
     return displayValue;
 }
 
-// total incom
+// total income
 function totalIncome() {
     let expence = convertDisplay("expenses_display");
     let balance = convertDisplay("balance_display");
@@ -70,7 +75,8 @@ savingBtn.addEventListener("click", function (event) {
     event.preventDefault();
     let totalIncomes = totalIncome();
     let balanceValue = convertDisplay("balance_display");
-    let saveValue = convertNumber("save_field") / 100;
+    let saveInput = document.getElementById('save_field').value;
+    let saveValue = parseFloat(saveInput) / 100;
     let showSaving = document.getElementById("saving_diaplay");
     let showRemaining = document.getElementById("display_remaining");
     let savingAmount = totalIncomes * saveValue;
